@@ -6,7 +6,8 @@ RESOLUTION="1400x900"
 # 启动 Xephyr 嵌套窗口
 Xephyr -br -ac -noreset -screen "$RESOLUTION" -resizeable :1 &
 sleep 1
-DISPLAY=:1 alacritty &
+DISPLAY=:1 kitty &
+DISPLAY=:1 feh --bg-scale ~/Downloads/253852.jpg &
 
 # 在 Xephyr 中启动 dwm，并持续监听 dwm 进程
 while pgrep -x "Xephyr" > /dev/null; do

@@ -1,11 +1,11 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx = 3; /* border pixel of windows */
-static const unsigned int snap = 32;    /* snap pixel */
+static const unsigned int borderpx = 1; /* border pixel of windows */
+static const unsigned int snap = 2;     /* snap pixel */
 static const int showbar = 1;           /* 0 means no bar */
 static const int topbar = 1;            /* 0 means bottom bar */
-static const char *fonts[] = {"monospace:size=10"};
+static const char *fonts[] = {"J:size=12"};
 static const char dmenufont[] = "monospace:size=10";
 static const char col_gray1[] = "#222222";
 static const char col_gray2[] = "#444444";
@@ -43,30 +43,30 @@ static const int lockfullscreen =
 static const Layout layouts[] = {
     /* symbol     arrange function */
     {"[]=", tile}, /* first entry is default */
-    {"><>", NULL}, /* no layout function means floating behavior */
+    // {"><>", NULL}, /* no layout function means floating behavior */
     {"[M]", monocle},
 };
 
 /* key definitions */
 #define MODKEY Mod1Mask
-#define TAGKEYS(KEY, TAG)                                        \
-  {MODKEY, KEY, view, {.ui = 1 << TAG}},                         \
-      {MODKEY | ControlMask, KEY, toggleview, {.ui = 1 << TAG}}, \
-      {MODKEY | ShiftMask, KEY, tag, {.ui = 1 << TAG}},          \
-      {MODKEY | ControlMask | ShiftMask, KEY, toggletag, {.ui = 1 << TAG}},
+#define TAGKEYS(KEY, TAG)                                          \
+    {MODKEY, KEY, view, {.ui = 1 << TAG}},                         \
+        {MODKEY | ControlMask, KEY, toggleview, {.ui = 1 << TAG}}, \
+        {MODKEY | ShiftMask, KEY, tag, {.ui = 1 << TAG}},          \
+        {MODKEY | ControlMask | ShiftMask, KEY, toggletag, {.ui = 1 << TAG}},
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
-#define SHCMD(cmd)                                       \
-  {                                                      \
-    .v = (const char *[]) { "/bin/sh", "-c", cmd, NULL } \
-  }
+#define SHCMD(cmd)                                           \
+    {                                                        \
+        .v = (const char *[]) { "/bin/sh", "-c", cmd, NULL } \
+    }
 
 /* commands */
 static const char *killdwm[] = {"pkill", "dwm", NULL};
 static const char *roficmd[] = {"rofi", "-show", "run", NULL};
-static const char *rofiapp[] = {"rofi",        "-i",        "-show", "drun",
+static const char *rofiapp[] = {"rofi", "-i", "-show", "drun",
                                 "-show-icons", "-matching", "fuzzy", NULL};
-static const char *termcmd[] = {"ghostty", NULL};
+static const char *termcmd[] = {"kitty", NULL};
 
 static const Key keys[] = {
     {MODKEY, XK_p, spawn, {.v = rofiapp}},
@@ -80,8 +80,8 @@ static const Key keys[] = {
     {MODKEY, XK_k, focusstack, {.i = -1}},
     {MODKEY, XK_i, incnmaster, {.i = +1}},
     {MODKEY, XK_d, incnmaster, {.i = -1}},
-    {MODKEY, XK_h, setmfact, {.f = -0.05}},
-    {MODKEY, XK_l, setmfact, {.f = +0.05}},
+    {MODKEY, XK_h, setmfact, {.f = -0.02}},
+    {MODKEY, XK_l, setmfact, {.f = +0.02}},
     {MODKEY, XK_Return, zoom, {0}},
     {MODKEY, XK_Tab, view, {0}},
     {MODKEY, XK_q, killclient, {0}},
